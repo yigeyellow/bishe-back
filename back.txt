@@ -1,0 +1,34 @@
+后端需要的步骤有
+1-1make_source(openpose)
+1-4norm
+1-5transfer(pix2pixHD和预训练的模型)
+2-0face_enhance_transfer
+2-3face_enhance(脸部网络和预训练的模型)(dataset/trainer/model)
+3-1total_make_gif输出最后结果
+
+关于不同级文件夹下的地址问题：
+    不同级下导入.py文件含义为直接导入代码，所以sys.path.append导入的也是以新文件的地址为前部分，会出现报错问题
+    除了import函数之外，打开文件夹/文件，读取文件的路径 也是以新文件的地址为前部分
+    如果使用sys.path.append，就可以import那个目录下文件中的函数
+
+在back目录下运行manage.py文件，所以前部分代码在最外层
+尝试./app/views.py中
+    引入app.rundance下的rundance
+        添加os.path.abspath('./app/dance')等途径
+        引入app.dance.total1下的total1
+    便能使用内层的函数和data文件夹
+
+在./app/views.py中的runDance中写了
+    print('sys.path',sys.path)
+    看看输出什么
+    sys.path.append不是永久保存的，而只在这一次运行中有用
+
+
+3.12
+在total1中删掉了1-5,发现不能删，最后gif中要
+实践了一下上面：关于不同级文件夹下的地址问题
+写一下上传文件和下载文件的步骤在csdn
+
+
+
+
